@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-
+# https://blog.csdn.net/majiakun1/article/details/48968519
 
 def max_subsequence(arr):
 
