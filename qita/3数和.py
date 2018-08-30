@@ -1,5 +1,7 @@
 # encoding: utf-8
-
+"""
+给你一个数组以及一个数K， 从这个数组里面选择三个数，使得三个数的和小于等于K， 问有多少种选择的方法？
+"""
 def sum_num_least(arr,k):
 
     res = set()
