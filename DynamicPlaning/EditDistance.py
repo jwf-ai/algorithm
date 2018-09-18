@@ -3,26 +3,18 @@
 S = input()
 T = input()
 
-S = " "+S
-T = " "+T
+def fun(str1,str2):
+    A = list([0]*(len(str2)+1) for i in range(len(str1)+1))
+    for i in range(len(str1)+1):
+        A[i][0] = i
+    for j in range(len(str2)+1):
+        A[0][j] = j
+    for i in range(1, len(str1)+1):
+        for j in range(1, len(str2)+1):
+            if str1[i - 1] != str2[j - 1]:
+                A[i][j] = min(A[i - 1][j] + 1, A[i][j - 1] + 1, A[i - 1][j - 1] + 1)
+            else:
+                A[i][j] = min(A[i - 1][j] + 1, A[i][j - 1] + 1, A[i - 1][j - 1])
+    return A[len(str1)][len(str2)]
 
-m = list([0] * (len(T)) for i in range((len(S))))
-print(len(m),len(m[0]))
-
-for i in range(len(S)):
-    for j in range(len(T)):
-        if i == 0:
-            print(i, j)
-            m[i][j] = j
-            continue
-        if j == 0:
-            m[i][j] = i
-            continue
-        if S[i] == T[j]:
-            m[i][j] = m[i-1][j-1]
-        else:
-            modify = m[i-1][j-1]+1
-            insertOrDelete = min(m[i-1][j-1]+1,m[i][j-1]+1)
-            m[i][j] = min(modify,insertOrDelete)
-
-print(m[len(S)-1][len(T)-1])
+print(fun(S,T))
